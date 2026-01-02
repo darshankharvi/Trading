@@ -1,0 +1,34 @@
+# Core dependencies
+typing-extensions
+langchain-openai
+langchain-experimental
+pandas
+yfinance
+praw
+feedparser
+stockstats
+eodhd
+langgraph
+chromadb
+setuptools
+backtrader
+akshare
+tushare
+finnhub-python
+parsel
+requests
+tqdm
+pytz
+redis
+chainlit
+rich
+questionary
+langchain_anthropic
+langchain-google-genai
+
+# New dependencies for Security, Monitoring, and Scheduling
+cryptography
+streamlit
+schedule
+plotly
+watchdog

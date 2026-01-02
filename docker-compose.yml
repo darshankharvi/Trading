@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # Main Trading Agent Service (CLI/Runner)
+  trading-agent:
+    build: .
+    image: trading-agents:latest
+    container_name: trading-agent-runner
+    volumes:
+      - ./results:/app/results
+      - ./dataflows/data_cache:/app/dataflows/data_cache
+      - ./.env:/app/.env
+    environment:
+      - TRADINGAGENTS_RESULTS_DIR=/app/results
+    command: python realtime_runner.py --ticker SPY --interval 60 --mode once
+    # 'mode once' runs it once; change to 'loop' for continuous execution if implemented
+
+  # Monitoring Dashboard (Streamlit)
+  dashboard:
+    build: .
+    image: trading-agents:latest
+    container_name: trading-agent-dashboard
+    volumes:
+      - ./results:/app/results
+    ports:
+      - "8501:8501"
+    command: streamlit run dashboard/app.py --server.address=0.0.0.0
+    depends_on:
+      - trading-agent
+    restart: always
+
