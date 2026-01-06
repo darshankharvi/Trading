@@ -166,22 +166,16 @@ class TradingAgentsGraph:
         init_agent_state = self.propagator.create_initial_state(
             company_name, trade_date
         )
-        args = self.propagator.get_graph_args()
+        # Disable streaming to support free models that don't support tool+stream
+        # args = self.propagator.get_graph_args()
 
         if self.debug:
             # Debug mode with tracing
-            trace = []
-            for chunk in self.graph.stream(init_agent_state, **args):
-                if len(chunk["messages"]) == 0:
-                    pass
-                else:
-                    chunk["messages"][-1].pretty_print()
-                    trace.append(chunk)
-
-            final_state = trace[-1]
+            # For free models, we must use invoke() instead of stream() to avoid 400 errors
+            final_state = self.graph.invoke(init_agent_state, config={"recursion_limit": self.config["max_recur_limit"]})
         else:
             # Standard mode without tracing
-            final_state = self.graph.invoke(init_agent_state, **args)
+            final_state = self.graph.invoke(init_agent_state, config={"recursion_limit": self.config["max_recur_limit"]})
 
         # Store current state for reflection
         self.curr_state = final_state
