@@ -10,8 +10,8 @@ DEFAULT_CONFIG = {
     ),
     # LLM settings
     "llm_provider": "openrouter",
-    "deep_think_llm": "qwen/qwen-2.5-72b-instruct:free",
-    "quick_think_llm": "qwen/qwen-2.5-72b-instruct:free",
+    "deep_think_llm": "meta-llama/llama-3.3-70b-instruct:free",
+    "quick_think_llm": "meta-llama/llama-3.3-70b-instruct:free",
     "backend_url": "https://openrouter.ai/api/v1",
     # Debate and discussion settings
     "max_debate_rounds": 1,
