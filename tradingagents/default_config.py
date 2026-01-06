@@ -10,8 +10,8 @@ DEFAULT_CONFIG = {
     ),
     # LLM settings
     "llm_provider": "openrouter",
-    "deep_think_llm": "tngtech/deepseek-r1t2-chimera:free",
-    "quick_think_llm": "tngtech/deepseek-r1t2-chimera:free",
+    "deep_think_llm": "google/gemini-2.0-flash-exp:free",
+    "quick_think_llm": "google/gemini-2.0-flash-exp:free",
     "backend_url": "https://openrouter.ai/api/v1",
     # Debate and discussion settings
     "max_debate_rounds": 1,
