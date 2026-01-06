@@ -32,3 +32,6 @@ streamlit
 schedule
 plotly
 watchdog
+
+# Fix for Streamlit Cloud SQLite issues
+pysqlite3-binary

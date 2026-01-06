@@ -1,7 +1,15 @@
 import chromadb
 from chromadb.config import Settings
 from openai import OpenAI
+import sys
 
+# Fix for Streamlit Cloud / Linux SQLite version issues
+try:
+    __import__('pysqlite3')
+    import sys
+    sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+except ImportError:
+    pass
 
 class FinancialSituationMemory:
     def __init__(self, name, config):
