@@ -11,9 +11,9 @@ eodhd
 langgraph
 chromadb
 setuptools
-backtrader
-akshare
-tushare
+# backtrader  <-- Removed: Unused and causes install issues on Py3.12
+# akshare     <-- Removed: Unused and heavy
+# tushare     <-- Removed: Unused
 finnhub-python
 parsel
 requests
