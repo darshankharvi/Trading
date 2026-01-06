@@ -1,37 +1,37 @@
-# Core dependencies
-typing-extensions
-langchain-openai
-langchain-experimental
+# Dashboard Critical (Install these first!)
+streamlit
+plotly
 pandas
+pysqlite3-binary
+
+# Core Dependencies
+typing-extensions
 yfinance
-praw
-feedparser
-stockstats
-eodhd
-langgraph
-chromadb
-setuptools
-# backtrader  <-- Removed: Unused and causes install issues on Py3.12
-# akshare     <-- Removed: Unused and heavy
-# tushare     <-- Removed: Unused
-finnhub-python
-parsel
 requests
 tqdm
 pytz
-redis
-chainlit
 rich
 questionary
-langchain_anthropic
-langchain-google-genai
-
-# New dependencies for Security, Monitoring, and Scheduling
+setuptools
 cryptography
-streamlit
 schedule
-plotly
 watchdog
 
-# Fix for Streamlit Cloud SQLite issues
-pysqlite3-binary
+# AI & Graph Frameworks
+langchain-openai
+langchain-experimental
+langchain_anthropic
+langchain-google-genai
+langgraph
+chromadb
+
+# Data Vendors & Tools
+finnhub-python
+eodhd
+praw
+feedparser
+stockstats
+parsel
+redis
+
+# Removed unused/heavy: chainlit, backtrader, akshare, tushare
